@@ -181,17 +181,21 @@ HBF::maze_path HBF::search(vector< vector<int> > grid, vector<double> start, vec
 
         opened.push_back(state2);
 
-        // double tentative_gScore = next.g + euclidean_dist(x, y, x2, y2);
+        double tentative_gScore = next.g + euclidean_dist(x, y, x2, y2);
 
-        // if (tentative_gScore >= g2) {
-        //     // This is not a better path.
-        //     continue;
-        // }
+        if (tentative_gScore >= g2) {
+            // This is not a better path.
+            continue;
+        }
 
-        // next_state[i].g = tentative_gScore;
+        vector<double> current;
+        current.push_back(x);
+        current.push_back(y);
+        next_state[i].g = tentative_gScore;
+        next_state[i].f = tentative_gScore + heuristic_cost_estimate(current, goal);
 
-        // closed[stack2][idx(x2)][idx(y2)] = next_state[i];
-        closed[stack2][idx(x2)][idx(y2)] = state2;
+        closed[stack2][idx(x2)][idx(y2)] = next_state[i];
+        // closed[stack2][idx(x2)][idx(y2)] = state2;
         closed_value[stack2][idx(x2)][idx(y2)] = 1;
         came_from[stack2][idx(x2)][idx(y2)] = next;
         total_closed += 1;

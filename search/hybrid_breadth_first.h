@@ -18,7 +18,7 @@ public:
   double LENGTH = 0.5;
 
   struct maze_s {
-      maze_s() : g(0), x(0), y(0), theta(0),
+    maze_s() : g(0), x(0), y(0), theta(0),
       f(numeric_limits<double>::infinity()) {}
     int g;  // iteration
     double x;
