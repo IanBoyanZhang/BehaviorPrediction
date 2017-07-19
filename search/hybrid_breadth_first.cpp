@@ -109,6 +109,19 @@ double euclidean_dist(double x_src, double y_src, double x_end, double y_end) {
     return sqrt(pow(x_src - x_end, 2) + pow(y_src - y_end, 2));
 }
 
+// Should use associated array with key f as priority queue
+// maze_s min_element(vector<maze_s>opened) {
+//   maze_s min_;
+//   double min_f = numeric_limits<double>::infinity();
+//   for (auto i = opened.begin(); i != opened.end(); i+=1) {
+//     if (opened[i].f < min_f) {
+//       min_f = opened[i].f;
+//       min_ = opened[i];
+//     }
+//   }
+//   return min_;
+// }
+
 HBF::maze_path HBF::search(vector< vector<int> > grid, vector<double> start, vector<int> goal) {
   /*
   Working Implementation of breadth first search. Does NOT use a heuristic
@@ -138,6 +151,7 @@ HBF::maze_path HBF::search(vector< vector<int> > grid, vector<double> start, vec
   while(!opened.empty())
   {
 
+    // TODO: using priority queue to increase efficiency
     maze_s next = opened[0]; //grab first elment
     opened.erase(opened.begin()); //pop first element
 
