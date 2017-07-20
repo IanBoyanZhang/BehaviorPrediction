@@ -48,7 +48,7 @@ vector<double> JMT(vector< double> start, vector <double> end, double T)
     VectorXd C = Ai * B;
     vector<double> result;
     // 1/2 will cause loss of accuracy?
-    result = {start[0], start[1], 0.5 * start[2]};
+    result = {start[0], start[1], 1/2. * start[2]};
     for (auto i = 0; i < C.size(); i+=1) {
       result.push_back(C.data()[i]);
     }
