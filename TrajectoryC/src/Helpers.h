@@ -11,6 +11,13 @@
 using namespace std;
 using namespace Eigen;
 class Helpers {
+public:
+  Helpers();
+  // Using template?
+  double logistic(double x);
+
+private:
+  double to_function(vector<double>& coefficients);
 
 };
 

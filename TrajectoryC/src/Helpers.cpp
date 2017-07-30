@@ -24,5 +24,8 @@ VectorXd Vehicle::state_in(double t) {
   return state;
 }
 
+double Helpers::logistic(double x) {
+  return 2.0 / (1 + exp(-x)) - 1.0;
+}
 
 
